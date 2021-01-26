@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "rainbow-bill-project": {
+      "hosting": {
+        "rainbowbill": [
+          "rainbow-bill-project"
+        ]
+      }
+    }
+  }
+}
