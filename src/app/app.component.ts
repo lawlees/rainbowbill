@@ -11,12 +11,10 @@ export class AppComponent {
   constructor(private customerService : CustomerService){}
 
   ngOnInit(){
-    alert("inside click_button method");
     this.customerService.getCustomerDetails().subscribe(result=>{
-      console.log(result);
+      console.log('Result',result);
     },err=>{
-      console.error(err);
-      
+      console.error(err);      
     });
   }
 }
