@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CustomerService } from './services/customer.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,14 +6,4 @@ import { CustomerService } from './services/customer.service'
 })
 export class AppComponent {
   title = 'rainbowbill';
-
-  constructor(private customerService : CustomerService){}
-
-  ngOnInit(){
-    this.customerService.getCustomerDetails().subscribe(result=>{
-      console.log('Result',result);
-    },err=>{
-      console.error(err);      
-    });
-  }
 }

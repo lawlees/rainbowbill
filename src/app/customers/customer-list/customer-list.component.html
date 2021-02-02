@@ -1,0 +1,27 @@
+<ng-container *ngIf="customerList.length==0; then empty; else notEmpty">
+</ng-container>
+<ng-template #empty>
+    <div>
+        No Customer Found
+    </div>
+</ng-template>
+<ng-template #notEmpty>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">SN</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone Number</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let customer of customerList; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.address}}</td>
+                    <td>{{customer.phoneNumber}}</td>
+                  </tr>
+                </tbody>
+              </table>
+</ng-template>
