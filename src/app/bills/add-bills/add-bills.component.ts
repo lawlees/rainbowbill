@@ -19,7 +19,7 @@ export class AddBillsComponent implements OnInit {
   constructor(public billService:BillService,
     private firestore:AngularFirestore,
     private toastr: ToastrService,
-    private service: CustomerService) { }
+    private customerService: CustomerService) { }
 
     
     ngOnInit() {
@@ -32,21 +32,19 @@ export class AddBillsComponent implements OnInit {
     }
 
     onSubmit(form:NgForm){
-      console.log(form);
       const data= form.value;
       this.firestore.collection('bill').add(data);
       //this.resetForm(form);
       this.toastr.success('Successful!!!!','Bill Upload');
     }
-    
+
     getCustomer(){
-      this.service.getCustomer().subscribe(customerList=>{
-        this.customerList = customerList;
-        console.log(customerList);
+      this.customerService.getCustomer().subscribe(res=>{
+        this.customerList = res;
         this.toastr.success('Fetched customer list','SUCCESSFUL!!!!');
-      },error=>{
+      }, error=>{
         this.toastr.error('Failed to fetch customers'+error,'ERROR!!!!');
       }); 
-    }
 
+    }
 }

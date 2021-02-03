@@ -10,19 +10,18 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CustomerListComponent implements OnInit {
 
-  customerList: Customer[] = [];
+  customerList: Customer []= [];
   constructor(
-    private service: CustomerService,
+    private customerService: CustomerService,
     private toastr: ToastrService) { }
 
   ngOnInit(){
-    this.service.getCustomer().subscribe(customerList=>{
-      this.customerList = customerList;
-      console.log(customerList);
-      this.toastr.success('Fetched customer list','SUCCESSFUL!!!!');
-    },error=>{
-      this.toastr.error('Failed to fetch customers'+error,'ERROR!!!!');
-    });
+     this.customerService.getCustomer().subscribe(res=>{
+       this.customerList = res;
+       this.toastr.success('Fetched customer list','SUCCESSFUL!!!!');
+      }, error=>{
+        this.toastr.error('Failed to fetch customers'+error,'ERROR!!!!');
+      }); 
   }
 
 
