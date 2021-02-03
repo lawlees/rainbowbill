@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Bill } from './bill.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BillService {
-  billFormData: Bill = new Bill;
   
 
-  constructor() { }
+  constructor(private firestore: AngularFirestore) { }
+
+  saveBillData(data: Bill){
+    return this.firestore.collection('bill').add(data);
+  }
 }

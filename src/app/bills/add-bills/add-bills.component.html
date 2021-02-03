@@ -1,24 +1,24 @@
 <div class="form-group">
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">      
 <div class="form-group">
-    <select name="customer" class="form-select" aria-label="Default select example" (click)="getCustomer()" [(ngModel)]="selectedCustomer">
+    <select name="customerId" class="form-select" aria-label="Default select example" (click)="getCustomer()" [(ngModel)]="selectedCustomer">
         <option selected>Open this select menu</option>
-        <option *ngFor="let customer of customerList" [ngValue]="customer">
+        <option *ngFor="let customer of customerList" [ngValue]="customer.id">
                 {{customer.name}}
         </option>
       </select>
     </div>
 
     <div class="form-group">
-        <input name="date" #ame="ngModel" [(ngModel)]="billService.billFormData.date" class="form-control"
+        <input name="date" #ame="ngModel" [(ngModel)]="billFormData.date" class="form-control"
             placeholder="Date">
     </div>
     <div class="form-group">
-        <input name="quantity" #ame="ngModel" [(ngModel)]="billService.billFormData.quantity" class="form-control"
+        <input name="quantity" #ame="ngModel" [(ngModel)]="billFormData.quantity" class="form-control"
             placeholder="Quantity">
     </div>
     <div class="form-group">
-        <input name="billNumber" #ame="ngModel" [(ngModel)]="billService.billFormData.billNumber" class="form-control"
+        <input name="billNumber" #ame="ngModel" [(ngModel)]="billFormData.billNumber" class="form-control"
             placeholder="BillNumber" required>
     </div>
     <div class="form-group">

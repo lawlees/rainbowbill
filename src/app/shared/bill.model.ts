@@ -1,8 +1,6 @@
-import { Customer } from "./customer.model";
-
 export class Bill {
-    date?:string;
+    date?:Date;
     quantity?:number;
     billNumber?:number;
-    customerId?:Customer;
+    customerId?:String;
 }
