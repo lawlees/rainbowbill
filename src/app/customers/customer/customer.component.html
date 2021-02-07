@@ -1,19 +1,25 @@
-
     <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+        <input type="hidden" name="id" #id="ngModel" [(ngModel)]="customerService.formData.id">
         <div class="form-group">
-            <input name="name" #ame="ngModel" [(ngModel)]="customerService.formData.name" class="form-control" placeholder="Name" required>
+            <input name="name" #name="ngModel" [(ngModel)]="customerService.formData.name" class="form-control" placeholder="Name" required>
         </div>
         <div class="form-group">
-            <input name="address" #ame="ngModel" [(ngModel)]="customerService.formData.address" class="form-control" placeholder="Address">
+            <input name="address" #address="ngModel" [(ngModel)]="customerService.formData.address" class="form-control" placeholder="Address">
         </div>
         <div class="form-group">
-            <input name="phoneNumber" #ame="ngModel" [(ngModel)]="customerService.formData.phoneNumber" class="form-control" placeholder="PhoneNumber">
+            <input name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="customerService.formData.phoneNumber" class="form-control" placeholder="PhoneNumber">
         </div>
         <div class="form-group">
-            <input name="rate" #ame="ngModel" [(ngModel)]="customerService.formData.rate" class="form-control" placeholder="Rate" required>
+            <input name="rate" #rate="ngModel" [(ngModel)]="customerService.formData.rate" class="form-control" placeholder="Rate" required>
         </div>
         <div class="form-group">
-            <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">SUBMIT</button>
+            <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-info">
+                <div *ngIf="customerService.formData.id==null;  else update">
+                REGISTER  
+            </div>
+            </button>
+            <ng-template #update>UPDATE</ng-template>
+
           </div>
     </form>
 

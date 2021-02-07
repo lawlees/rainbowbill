@@ -5,6 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment'
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,14 @@ import { MatInputModule } from '@angular/material/input';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BillsComponent } from './bills/bills.component';
 import { AddBillsComponent } from './bills/add-bills/add-bills.component';
+import { NpDatepickerModule } from 'angular-nepali-datepicker';
+import { BillListComponent } from './bills/bill-list/bill-list.component';
+
+const appRoutes: Routes =[
+  { path: 'customer',component:CustomerComponent},
+  { path: 'bill',component:BillsComponent},
+  { path: '',redirectTo:'/customer', pathMatch:'full'}
+];
 
 @NgModule({
   declarations: [
@@ -35,6 +44,7 @@ import { AddBillsComponent } from './bills/add-bills/add-bills.component';
     NavBarComponent,
     BillsComponent,
     AddBillsComponent,
+    BillListComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,13 +55,16 @@ import { AddBillsComponent } from './bills/add-bills/add-bills.component';
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes),
 
     MatExpansionModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    NpDatepickerModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
+    
   ],
   providers: [CustomerService ],
   bootstrap: [AppComponent]

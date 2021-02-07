@@ -1,4 +1,8 @@
-<mat-expansion-panel>
+
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-5">
+    <mat-expansion-panel>
     <mat-expansion-panel-header>
         <mat-panel-title>
             <h1 class="display-4">Add Bills</h1>
@@ -8,6 +12,8 @@
       </mat-expansion-panel-header>
       <app-add-bills></app-add-bills>
   </mat-expansion-panel>
+    </div>
+        <div class="col-md-5">
   <mat-expansion-panel>
     <mat-expansion-panel-header>
         <mat-panel-title>
@@ -16,5 +22,8 @@
         <mat-panel-description>
         </mat-panel-description>
       </mat-expansion-panel-header>
-      No Bills now
+      <app-bill-list></app-bill-list>
   </mat-expansion-panel>
+  </div>
+  </div>
+</div>

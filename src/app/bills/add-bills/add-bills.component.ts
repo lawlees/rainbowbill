@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Bill } from 'src/app/shared/bill.model';
@@ -30,13 +29,15 @@ export class AddBillsComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form != null)
       form.resetForm();
-    this.billFormData.date = new Date;          
+    // this.billFormData.date=new NepaliDate(new Date);
   }
 
   onSubmit(form: NgForm) {
+    console.log('form date', form.value)
     const data = form.value as Bill;
+    console.log('form date----->>>>>>', data)
     this.billService.saveBillData(data).then(()=>{
-      this.resetForm(form);
+      // this.resetForm(form);
       this.toastr.success('Successful!!!!', 'Bill Upload');
     }).catch(()=>{
       this.toastr.error('Failed to save Bill Details',);

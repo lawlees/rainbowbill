@@ -11,24 +11,29 @@ import { CustomerService } from 'src/app/shared/customer.service';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor(public customerService:CustomerService,
-    private firestore:AngularFirestore,
+  constructor(public customerService: CustomerService,
+    private firestore: AngularFirestore,
     private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.resetForm(); 
+    this.resetForm();
 
   }
 
-  resetForm(form?: NgForm){
-    if(form!=null)
+  resetForm(form?: NgForm) {
+    if (form != null)
       form.resetForm();
   }
 
-  onSubmit(form:NgForm){
-    const data= form.value;
-    this.firestore.collection('customer').add(data);
+  onSubmit(form: NgForm) {
+    const data = JSON.parse(JSON.stringify(form.value));
+    delete data.id
+    if (form.value.id == null){
+      this.customerService.saveCustomerData(data);
+    } else{
+      this.firestore.doc('customer/' + form.value.id).update(data);
+    }
     this.resetForm(form);
-    this.toastr.success('Successful!!!!','Customer Registration');
+    this.toastr.success('Successful!!!!', 'Customer Registration');
   }
 }

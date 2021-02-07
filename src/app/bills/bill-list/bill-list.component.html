@@ -1,0 +1,30 @@
+<ng-container *ngIf="billList.length==0; then empty; else notEmpty">
+</ng-container>
+<ng-template #empty>
+    <div>
+        No Bills Found
+    </div>
+</ng-template>
+<ng-template #notEmpty>
+            <table class="table" id="billListTable">
+                <thead>
+                  <tr>
+                    <th scope="col">SN</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Bill Number</th>
+                    <th scope="col">Quantity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let billObj of billList; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td (click)="onEdit(billObj)">{{billObj.customerId}}</td>
+                    <td (click)="onEdit(billObj)">{{billObj.date}}</td>
+                    <td (click)="onEdit(billObj)">{{billObj.billNumber}}</td>
+                    <td (click)="onEdit(billObj)">{{billObj.quantity}}</td>
+                    <td><a class="btn-text-danger" (click)="onDelete(billObj.id)"><i class="fa fa-trash"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+</ng-template>

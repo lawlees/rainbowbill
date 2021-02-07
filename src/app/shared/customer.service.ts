@@ -24,4 +24,18 @@ export class CustomerService {
           });
     }));
   }
+
+  deleteCustomer(id: string) {
+    console.log("delete here"+this.firestore.doc('customer/' + id));
+      this.firestore.doc('customer/' + id).delete();
+  }
+
+  saveCustomerData(data: Customer){
+    return this.firestore.collection('customer').add(data);
+  }
+
+  getCustomerName(id:string){
+    
+  }
+  
 }

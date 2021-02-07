@@ -6,7 +6,7 @@
     </div>
 </ng-template>
 <ng-template #notEmpty>
-            <table class="table">
+            <table class="table" id="customerListTable">
                 <thead>
                   <tr>
                     <th scope="col">SN</th>
@@ -16,11 +16,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let customer of customerList; let i = index">
+                  <tr *ngFor="let cust of customerList; let i = index">
                     <th scope="row">{{i+1}}</th>
-                    <td>{{customer.name}}</td>
-                    <td>{{customer.address}}</td>
-                    <td>{{customer.phoneNumber}}</td>
+                    <td (click)="onEdit(cust)">{{cust.name}}</td>
+                    <td (click)="onEdit(cust)">{{cust.address}}</td>
+                    <td (click)="onEdit(cust)">{{cust.phoneNumber}}</td>
+                    <td><a class="btn-text-danger" (click)="onDelete(cust.id)"><i class="fa fa-trash"></i></a></td>
                   </tr>
                 </tbody>
               </table>
