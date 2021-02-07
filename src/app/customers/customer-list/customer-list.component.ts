@@ -24,5 +24,16 @@ export class CustomerListComponent implements OnInit {
       }); 
   }
 
+  onEdit(cust: Customer){
+    this.customerService.formData = Object.assign({}, cust);
+  }
+
+  onDelete(id: string) {
+    if (confirm("Are you sure to delete this record?")) {
+      this.customerService.deleteCustomer(id);
+      this.toastr.warning('Deleted successfully','Customer Details');
+    }
+  }
+
 
 }

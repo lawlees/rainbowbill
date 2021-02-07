@@ -1,5 +1,8 @@
+import { NepaliDate } from "angular-nepali-datepicker";
+
 export class Bill {
-    date?:Date;
+    id:string;
+    date?:NepaliDate;
     quantity?:number;
     billNumber?:number;
     customerId?:String;
