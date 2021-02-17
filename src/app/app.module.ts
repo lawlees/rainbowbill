@@ -28,12 +28,8 @@ import { BillsComponent } from './bills/bills.component';
 import { AddBillsComponent } from './bills/add-bills/add-bills.component';
 import { NpDatepickerModule } from 'angular-nepali-datepicker';
 import { BillListComponent } from './bills/bill-list/bill-list.component';
+import { PrintBillsComponent } from './print-bills/print-bills.component';
 
-const appRoutes: Routes =[
-  { path: 'customer',component:CustomerComponent},
-  { path: 'bill',component:BillsComponent},
-  { path: '',redirectTo:'/customer', pathMatch:'full'}
-];
 
 @NgModule({
   declarations: [
@@ -45,6 +41,7 @@ const appRoutes: Routes =[
     BillsComponent,
     AddBillsComponent,
     BillListComponent,
+    PrintBillsComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,8 +52,6 @@ const appRoutes: Routes =[
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes),
-
     MatExpansionModule,
     MatButtonModule,
     MatFormFieldModule,
