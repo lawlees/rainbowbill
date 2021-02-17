@@ -6,4 +6,5 @@ export class Bill {
     quantity?:number;
     billNumber?:number;
     customerId?:String;
+    customerName?:String;
 }

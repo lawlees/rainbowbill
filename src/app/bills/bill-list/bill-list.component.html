@@ -19,7 +19,7 @@
                 <tbody>
                   <tr *ngFor="let billObj of billList; let i = index">
                     <th scope="row">{{i+1}}</th>
-                    <td (click)="onEdit(billObj)">{{billObj.customerId}}</td>
+                    <td (click)="onEdit(billObj)">{{billObj.customerName}}</td>
                     <td (click)="onEdit(billObj)">{{billObj.date}}</td>
                     <td (click)="onEdit(billObj)">{{billObj.billNumber}}</td>
                     <td (click)="onEdit(billObj)">{{billObj.quantity}}</td>

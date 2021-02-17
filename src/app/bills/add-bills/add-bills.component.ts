@@ -16,6 +16,7 @@ export class AddBillsComponent implements OnInit {
   customerList: Customer[] = [];
   selectedCustomer: Customer = new Customer;
   billFormData: Bill = new Bill;
+  selectedCustomerName: String | undefined;
 
   constructor(private billService: BillService,
     private toastr: ToastrService,
@@ -33,8 +34,10 @@ export class AddBillsComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    debugger;
     console.log('form date', form.value)
     const data = form.value as Bill;
+    data.customerName=this.getCustomerNameById(data.customerId);
     console.log('form date----->>>>>>', data)
     this.billService.saveBillData(data).then(()=>{
       // this.resetForm(form);
@@ -55,4 +58,15 @@ export class AddBillsComponent implements OnInit {
     });
 
   }
+
+  getCustomerNameById(id: any){
+    console.log(this.customerList);
+    for (let i = 0; i < this.customerList.length; i++) {
+      if(id=== this.customerList[i].id){
+        this.selectedCustomerName= this.customerList[i].name;
+      console.log ("Block statement execution no." + i);
+    }
+  }
+  return this.selectedCustomerName;
+}
 }
