@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
+import { NepaliDate } from 'angular-nepali-datepicker';
 import { ToastrService } from 'ngx-toastr';
 import { Bill } from 'src/app/shared/bill.model';
 import { BillService } from 'src/app/shared/bill.service';
@@ -17,10 +19,10 @@ export class AddBillsComponent implements OnInit {
   selectedCustomer: Customer = new Customer;
   billFormData: Bill = new Bill;
   selectedCustomerName: String | undefined;
-
   constructor(private billService: BillService,
     private toastr: ToastrService,
-    private customerService: CustomerService) { }
+    private customerService: CustomerService,
+    private firestore: AngularFirestore) { }
 
 
   ngOnInit() {
@@ -30,23 +32,22 @@ export class AddBillsComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form != null)
       form.resetForm();
-    // this.billFormData.date=new NepaliDate(new Date);
+     // this.billFormData.date=new NepaliDate(new Date);
   }
 
   onSubmit(form: NgForm) {
-    debugger;
-    console.log('form date', form.value)
-    const data = form.value as Bill;
-    data.customerName=this.getCustomerNameById(data.customerId);
-    console.log('form date----->>>>>>', data)
-    this.billService.saveBillData(data).then(()=>{
-      // this.resetForm(form);
-      this.toastr.success('Successful!!!!', 'Bill Upload');
-    }).catch(()=>{
-      this.toastr.error('Failed to save Bill Details',);
-    })
+    const data = JSON.parse(JSON.stringify(form.value as Bill));
+    delete data.id
+    if (form.value.id == null){
+      data.customerName=this.getCustomerNameById(data.customerId);
+      this.billService.saveBillData(data);
+    } else{
+      this.firestore.doc('bill/' + form.value.id).update(data);
+    }
+    this.resetForm(form);
+    this.toastr.success('Successful!!!!', 'Customer Registration');
   }
-
+   
   getCustomer() {
     if (this.customerList.length>0)
       return;
