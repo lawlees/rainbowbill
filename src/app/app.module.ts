@@ -19,10 +19,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BillsComponent } from './bills/bills.component';
 import { AddBillsComponent } from './bills/add-bills/add-bills.component';
@@ -52,10 +48,6 @@ import { PrintBillsComponent } from './print-bills/print-bills.component';
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    MatExpansionModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
     NpDatepickerModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added

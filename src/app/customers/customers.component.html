@@ -1,28 +1,12 @@
 <div class="container-fluid">
 <div class="row">
   <div class="col-md-5">
-<mat-expansion-panel>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
       <h1 class="display-4">Customer Registration</h1>
-    </mat-panel-title>
-    <mat-panel-description>
-    </mat-panel-description>
-  </mat-expansion-panel-header>
   <app-customer></app-customer>
-</mat-expansion-panel>
 </div>
   <div class="col-md-5">
-    <mat-expansion-panel>
-      <mat-expansion-panel-header (click)="show_customer_list()">
-        <mat-panel-title>
           <h1 class="display-4">View Customer</h1>
-        </mat-panel-title>
-        <mat-panel-description>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <app-customer-list *ngIf="showCustomerList"></app-customer-list>
-    </mat-expansion-panel>
+      <app-customer-list></app-customer-list>
   </div>
   </div>
 </div>
