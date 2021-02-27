@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BillsComponent implements OnInit {
 
+  showBillList: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  show_bill_list() {
+    this.showBillList = true;
   }
 
 }

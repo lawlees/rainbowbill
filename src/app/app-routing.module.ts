@@ -12,7 +12,7 @@ import { PrintBillsComponent } from './print-bills/print-bills.component';
 const routes: Routes = [  { path: 'customer',component:CustomersComponent},
 { path: 'bill',component:BillsComponent},
 { path: 'print',component:PrintBillsComponent},
-{ path: '',redirectTo:'/customer', pathMatch:'full'}
+{ path: '',redirectTo:'/bill', pathMatch:'full'}
 
 ];
 

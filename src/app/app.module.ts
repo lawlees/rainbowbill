@@ -25,6 +25,7 @@ import { AddBillsComponent } from './bills/add-bills/add-bills.component';
 import { NpDatepickerModule } from 'angular-nepali-datepicker';
 import { BillListComponent } from './bills/bill-list/bill-list.component';
 import { PrintBillsComponent } from './print-bills/print-bills.component';
+import { BillService } from './shared/bill.service';
 
 
 @NgModule({
@@ -53,7 +54,7 @@ import { PrintBillsComponent } from './print-bills/print-bills.component';
     ToastrModule.forRoot() // ToastrModule added
     
   ],
-  providers: [CustomerService ],
+  providers: [CustomerService, BillService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

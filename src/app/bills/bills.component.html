@@ -1,13 +1,32 @@
 
 <div class="container-fluid">
-<div class="row">
+  <div class="row">
     <div class="col-md-5">
-  
-            <h1 class="display-4">Add Bills</h1>
+  <p>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseAddBill" aria-expanded="false" aria-controls="collapseAddBill">
+        <h1 class="display-6">Add Bills</h1>
+      </button>
+    </p>
+    <div class="collapse" id="collapseAddBill">
       <app-add-bills></app-add-bills>
-    </div>
-        <div class="col-md-5">
-            <h1 class="display-4">View Bills</h1>
-          <app-bill-list></app-bill-list> </div>
+    </div>  
+    
   </div>
-</div>
+    <div class="col-md-5">
+      <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseBillList" aria-expanded="false" 
+        aria-controls="collapseBillList" (click)="show_bill_list()">
+          <h1 class="display-6">View Bills</h1>
+        </button>
+      </p>
+      <div class="collapse" id="collapseBillList">
+        <app-bill-list *ngIf="showBillList"></app-bill-list> 
+      </div>  
+    </div>
+    </div>
+  </div>
+  
+
+
+  
+  
